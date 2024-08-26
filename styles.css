@@ -45,7 +45,13 @@ body {
     font-weight: bold;
 }
 
-.secondaryNum {
+.secondNumContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.secondaryNum,
+.secondaryOperator {
     color: rgba(255, 255, 255, 0.7);
     font-size: 28px;
 }
