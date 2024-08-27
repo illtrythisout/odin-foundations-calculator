@@ -29,56 +29,12 @@ function operate(num1, operator, num2) {
     }
 }
 
-const zero = document.querySelector("#zero");
-const one = document.querySelector("#one");
-const two = document.querySelector("#two");
-const three = document.querySelector("#three");
-const four = document.querySelector("#four");
-const five = document.querySelector("#five");
-const six = document.querySelector("#six");
-const seven = document.querySelector("#seven");
-const eight = document.querySelector("#eight");
-const nine = document.querySelector("#nine");
-
-zero.addEventListener("click", () => {
-    num2 = num2 + "0"
-    console.log(parseInt(num2))
-})
-one.addEventListener("click", () => {
-    num2 = num2 + "1"
-    console.log(parseInt(num2))
-})
-two.addEventListener("click", () => {
-    num2 = num2 + "2"
-    console.log(parseInt(num2))
-})
-three.addEventListener("click", () => {
-    num2 = num2 + "3"
-    console.log(parseInt(num2))
-})
-four.addEventListener("click", () => {
-    num2 = num2 + "4"
-    console.log(parseInt(num2))
-})
-five.addEventListener("click", () => {
-    num2 = num2 + "5"
-    console.log(parseInt(num2))
-})
-six.addEventListener("click", () => {
-    num2 = num2 + "6"
-    console.log(parseInt(num2))
-})
-seven.addEventListener("click", () => {
-    num2 = num2 + "7"
-    console.log(parseInt(num2))
-})
-eight.addEventListener("click", () => {
-    num2 = num2 + "8"
-    console.log(parseInt(num2))
-})
-nine.addEventListener("click", () => {
-    num2 = num2 + "9"
-    console.log(parseInt(num2))
+const buttons = document.querySelectorAll("button")
+buttons.forEach(btn => {
+    btn.addEventListener("click", () => {
+        num2 = Number(num2 + btn.value);
+        console.log(num2)
+    })
 })
 
 // listen to when user presses button
