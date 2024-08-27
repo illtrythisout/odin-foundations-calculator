@@ -81,6 +81,7 @@ button:hover {
     background-color: rgb(230, 230, 230);
 }
 
-button#zero {
+button#zero,
+button#ac {
     width: 132px;
 }
