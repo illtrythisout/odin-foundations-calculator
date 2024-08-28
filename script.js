@@ -68,9 +68,25 @@ function unHighlight() {
     buttons.forEach(btn => {btn.style.backgroundColor = "rgb(240, 240, 240)"})
 }
 
+function displayAndRoundNum(display, n) {
+    if (n.toString().length < 9) {
+        display.textContent = n;
+        console.log("below 9");
+    } else {
+        if (n.toPrecision(8).toString().length < 9) {
+            display.textContent = n.toPrecision(8).toString();
+        } else {
+            let splitArray = n.toPrecision(8).toString().split("e");
+            let displayNum = splitArray[0].slice(0, (8 - splitArray[1].length));
+            display.textContent = displayNum + "e" + splitArray[1];
+        }
+        console.log("above 9");
+    }
+}
+
 const buttons = document.querySelectorAll("button");
 buttons.forEach(btn => {
-    btn.addEventListener("click", () => { // number and decimal point buttons
+    btn.addEventListener("click", () => {
         if (!isNaN(btn.value) || btn.value === ".") { // number buttons
             if (operator) {
                 num2 += btn.value;
@@ -87,7 +103,7 @@ buttons.forEach(btn => {
             if (num1 && num2) {
                 num1 = operate(num1, operator, num2);
                 num2 = "";
-                primaryDisplay.textContent = num1;
+                displayAndRoundNum(primaryDisplay, num1);
             }
             operator = btn.value;
 
