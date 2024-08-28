@@ -71,7 +71,6 @@ function unHighlight() {
 function displayAndRoundNum(display, n) {
     if (n.toString().length < 9) {
         display.textContent = n;
-        console.log("below 9");
     } else {
         if (n.toPrecision(8).toString().length < 9) {
             display.textContent = n.toPrecision(8).toString();
@@ -84,7 +83,6 @@ function displayAndRoundNum(display, n) {
                 display.textContent = n.toPrecision(8);
             }
         }
-        console.log("above 9");
     }
 }
 
@@ -93,13 +91,18 @@ buttons.forEach(btn => {
     btn.addEventListener("click", () => {
         if (!isNaN(btn.value) || btn.value === ".") { // number buttons
             if (operator) {
-                num2 += btn.value;
-                primaryDisplay.textContent = num2;
+                if (num2.toString().length < 8) {
+                    num2 += btn.value;
+                    primaryDisplay.textContent = num2;
+                    currentNum += btn.value;
+                }
             } else {
-                num1 += btn.value;
-                primaryDisplay.textContent = num1;
+                if (num1.toString().length < 8) {
+                    num1 += btn.value;
+                    primaryDisplay.textContent = num1;
+                    currentNum += btn.value;
+                }
             }
-            currentNum += btn.value;
 
             unHighlight()
 
@@ -120,7 +123,7 @@ buttons.forEach(btn => {
         } else if (num1 && operator && num2) { // equal button
             num1 = operate(num1, operator, num2);
             num2 = "";
-            primaryDisplay.textContent = num1;
+            displayAndRoundNum(primaryDisplay, num1);
             operator = ""
 
             addToSecondaryArray();
