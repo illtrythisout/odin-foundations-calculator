@@ -74,10 +74,15 @@ button {
     font-size: 1.25rem;
     color: rgb(208, 92, 101);
     font-weight: bold;
+    transition: background-color 0.2s;
 }
 
 button:hover {
     background-color: rgb(230, 230, 230);
+}
+
+button.active {
+    background-color: rgb(220, 220, 220);
 }
 
 button#zero,

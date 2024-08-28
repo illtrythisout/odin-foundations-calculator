@@ -65,7 +65,7 @@ function operate(num1, operator, num2) {
 
 // Un-highlight operator buttons
 function unHighlight() {
-    buttons.forEach(btn => {btn.style.backgroundColor = "rgb(240, 240, 240)"})
+    buttons.forEach(btn => { btn.classList.remove('active') });
 }
 
 function displayAndRoundNum(display, n) {
@@ -115,8 +115,8 @@ buttons.forEach(btn => {
             operator = btn.value;
 
             // highlight background
-            buttons.forEach(btn => {btn.style.backgroundColor = "rgb(240, 240, 240)"})
-            btn.style.backgroundColor = "rgb(220, 220, 220)"
+            unHighlight();
+            btn.classList.add('active');
 
             addToSecondaryArray();
 
