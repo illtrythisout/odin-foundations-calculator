@@ -28,8 +28,8 @@ const scndOp2 = document.querySelector("#scndOp2");
 const scndNum3 = document.querySelector("#scndNum3");
 const scndOp3 = document.querySelector("#scndOp3");
 
-let secondaryAnswers = [];
-let secondaryAnsOperator = [];
+let secondaryAnswers = ["", "", ""];
+let secondaryAnsOperator = ["", "", "", ""];
 let currentNum = "";
 
 function addToSecondaryArray() {
@@ -42,16 +42,10 @@ function addToSecondaryArray() {
     if (secondaryAnsOperator.length > 4) {
         secondaryAnsOperator.pop();
     }
-
-    scndNum1.textContent = secondaryAnswers[0];
-    scndOp1.textContent = secondaryAnsOperator[1];
-    scndNum2.textContent = secondaryAnswers[1];
-    scndOp2.textContent = secondaryAnsOperator[2];
-    scndNum3.textContent = secondaryAnswers[2];
-    scndOp3.textContent = secondaryAnsOperator[3];
-
-    console.log(secondaryAnswers)
-    console.log(secondaryAnsOperator)
+    
+    scndNum1.textContent = secondaryAnsOperator[1] + " " + secondaryAnswers[0];
+    scndNum2.textContent = secondaryAnsOperator[2] + " " + secondaryAnswers[1];
+    scndNum3.textContent = secondaryAnsOperator[3] + " " + secondaryAnswers[2];
 }
 
 // Execute operation function based on the chosen operator

@@ -47,13 +47,12 @@ body {
 
 .secondNumContainer {
     display: flex;
-    gap: 10px;
 }
 
-.secondaryNum,
-.secondaryOperator {
+.secondaryNum {
     color: rgba(255, 255, 255, 0.7);
     font-size: 28px;
+    text-align: end;
 }
 
 #numPad {
