@@ -1,3 +1,4 @@
+// operator functions
 function add(a, b) {
     return a + b;
 }
@@ -19,14 +20,12 @@ let num1 = "";
 let operator = "";
 let num2 = "";
 
+// display selectors
 const primaryDisplay = document.querySelector("#primaryNum");
 
 const scndNum1 = document.querySelector("#scndNum1");
-const scndOp1 = document.querySelector("#scndOp1");
 const scndNum2 = document.querySelector("#scndNum2");
-const scndOp2 = document.querySelector("#scndOp2");
 const scndNum3 = document.querySelector("#scndNum3");
-const scndOp3 = document.querySelector("#scndOp3");
 
 let secondaryAnswers = ["", "", ""];
 let secondaryAnsOperator = ["", "", "", ""];
@@ -72,7 +71,7 @@ function unHighlight() {
 const buttons = document.querySelectorAll("button");
 buttons.forEach(btn => {
     btn.addEventListener("click", () => { // number and decimal point buttons
-        if (!isNaN(btn.value) || btn.value === ".") {
+        if (!isNaN(btn.value) || btn.value === ".") { // number buttons
             if (operator) {
                 num2 += btn.value;
                 primaryDisplay.textContent = num2;
@@ -113,6 +112,13 @@ buttons.forEach(btn => {
             operator = "";
             num2 = "";
             primaryDisplay.textContent = "0";
+
+            secondaryAnswers = ["", "", ""];
+            secondaryAnsOperator = ["", "", "", ""];
+            currentNum = "";
+            scndNum1.textContent = "";
+            scndNum2.textContent = "";
+            scndNum3.textContent = "";
 
             unHighlight()
 
