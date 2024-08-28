@@ -160,3 +160,25 @@ buttons.forEach(btn => {
         }
     })
 })
+
+function simulateButtonClick(value) {
+    const button = document.querySelector('button[value="' + value + '"]')
+    if (button) {
+        button.click();
+    }
+}
+
+document.addEventListener("keydown", (e) => {
+    const keyPressed = e.key;
+    if (!isNaN(keyPressed)) {
+        simulateButtonClick(keyPressed);
+    } else if (keyPressed === "+" || keyPressed === "-" || keyPressed === "*" || keyPressed === "/") {
+        simulateButtonClick(keyPressed);
+    } else if (keyPressed === "Enter") {
+        simulateButtonClick("operate");
+    } else if (keyPressed === "Backspace") {
+        simulateButtonClick("del");
+    } else if (keyPressed === ".") {
+        simulateButtonClick(".");
+    }
+})
