@@ -76,9 +76,13 @@ function displayAndRoundNum(display, n) {
         if (n.toPrecision(8).toString().length < 9) {
             display.textContent = n.toPrecision(8).toString();
         } else {
-            let splitArray = n.toPrecision(8).toString().split("e");
-            let displayNum = splitArray[0].slice(0, (8 - splitArray[1].length));
-            display.textContent = displayNum + "e" + splitArray[1];
+            if (n.toPrecision(8).toString().includes("e")) {
+                let splitArray = n.toPrecision(8).toString().split("e");
+                let displayNum = splitArray[0].slice(0, (8 - splitArray[1].length));
+                display.textContent = displayNum + "e" + splitArray[1];
+            } else {
+                display.textContent = n.toPrecision(8);
+            }
         }
         console.log("above 9");
     }
